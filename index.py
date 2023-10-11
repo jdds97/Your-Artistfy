@@ -1,28 +1,88 @@
-from marvel import Marvel
-import openai
-openai.api_key="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"
-marvel = Marvel(PUBLIC_KEY="6c6852c85207adba9e725a4d7e5de26e", PRIVATE_KEY="ed1eb9958e767573a19ff94480cd0cb8c55b6ea9")
+import json
+import os
+import base64
+from requests import post
 
-personajes = marvel.characters
+
+
+
+client_id = "2672e0ae0aa5490790c100b875539755"
+client_secret ="4f963dea4f53423abc1d4dc1ada3a108"
+
+print(client_id,client_secret)
+
+def get_token():
+    auth_string = f"{client_id}:{client_secret}"
+    auth_bytes=auth_string.encode("utf-8")
+    auth_base64=str(base64.b64encode(auth_bytes),"utf-8")
+    
+    url="https://accounts.spotify.com/api/token"
+    headers={
+        "Authorization" :"Basic" +auth_base64,
+        "Content-Type ":"application/x-www-form-urlencoded"
+    }
+    data={"grant_type" : "client_credentials"}
+    result = post(url, headers=headers, data=data)
+    json_result=json.loads(result.content)
+    token=json_result["access_token"]
+    return token
+
+token=get_token()
+print(token)
+def get_auth_header(token):
+    return{"Autorizathion" :"Bearer" +token}
+
+def buscar_artista(nombre):
+    url="https://api.spotify.com/v1/search"
+    headers=get_auth_header(token)
+    parametros={
+        "q":nombre,
+        "type":"artist",
+        "limit":1
+    }
+    if name == resultado_json:
+        
+        return id_artista
+
+def obtenerTopTracksPorId(id_artista):    
+    topTracks=f"https://api.spotify.com/v1/artists/{id_artista}/top-tracks"
+    headers=get_auth_header(token)
+    parametros={
+        "market":"ES"
+    }
+    result = post(topTracks, headers=headers, data=parametros)
+    json_result=json.loads(result.content)
+    return json_result["tracks"]
+salir=False
+
+def crearListaReproducción(){
+while salir==False:
+    nombre_artista=input("Dime el nombre de tus artista")
+    listaReproduccion+=obtenerTopTracksPorId(id_artista=buscar_artista(nombre_artista))
+    salir=input("¿Has terminado con tus artistas?"+"\n"+"1.Si"+"2.No").lower
+    if salir=="si" or salir=="1":
+        salir==True
+    else:
+        artistas_favoritos+=[nombre_artista]
+    return listaReproduccion
+}
+    
+print(listaReproduccion)
+
 ''''
-todosPersonajes = personajes.all(name=nombre_personaje_favorito)
-class Equipo ():
-    def nombre():
-        for personaje in todosPersonajes:
-            if nombre_personaje_favorito==personaje["id"]["name"]:
-                equipo.append(personaje)
 
 
 
-'''
 
-nombre_personaje_favorito = input("Dime tu nombre de personaje favorito: ")
-nombreProtagonista=input("Ahora dime tu nombre ")
-pregunta=openai.Completion.create(engine="text-davinci-003",prompt="Creame una historia de batalla con el "+str(nombreProtagonista),max_tokens=2048)
-print(pregunta.choices[0].text)
-image_resp = openai.Image.create(prompt="Resultado de la batalla ", n=4, size="512x512")
-'''
-aparicionesPersonaje()
-        if personajes
-        print(f"El nombre del personaje es {personaje['name']} y aparece en la serie {personaje['series
+
+PAÍS=input("Si quieres dime de qué país quieres")
+if PAÍS ==" " or ==
+urlPaís=f"https://restcountries.com/v3.1/name/{PAÍS}"
+
+with open(urlPaís, "w") as j:
+    fichero = json.load(j)
+
+
+for INFO_PAÍS in fichero:
+    print(INFO_PAÍS[''])
 '''
