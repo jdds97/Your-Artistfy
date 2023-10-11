@@ -1,16 +1,20 @@
 import json
 import base64
+import os
+from dotenv import load_dotenv
 from requests import post,get
 
+load_dotenv()
 
-client_id = "2672e0ae0aa5490790c100b875539755"
-client_secret = "4f963dea4f53423abc1d4dc1ada3a108"
-
-print(client_id, client_secret)
+cliente_id = os.getenv("CLIENTE_ID")
+cliente_secreto = os.getenv("CLIENTE_SECRETO")
 
 
-def get_token():
-    auth_string = f"{client_id}:{client_secret}"
+print(cliente_id, cliente_secreto)
+
+
+def obtener_token():
+    auth_string = f"{cliente_id}:{cliente_secreto}"
     auth_bytes = auth_string.encode("utf-8")
     auth_base64 = str(base64.b64encode(auth_bytes), "utf-8")
 

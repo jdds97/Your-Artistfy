@@ -1,0 +1,11 @@
+{
+    "name": "Artistfy",
+    "image": "artistfy",  // Reemplaza con el nombre de tu imagen de Docker
+    "extensions": [
+      "ms-python.python"
+    ],
+    "settings": {
+      "python.pythonPath": "/usr/local/bin/python"
+    }
+  }
+  
