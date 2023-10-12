@@ -9,7 +9,6 @@ load_dotenv()
 cliente_id = os.getenv("CLIENTE_ID")
 cliente_secreto = os.getenv("CLIENTE_SECRETO")
 
-
 print(cliente_id, cliente_secreto)
 
 
