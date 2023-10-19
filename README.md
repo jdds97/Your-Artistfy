@@ -22,7 +22,7 @@ Una vez tengamos instalado docker, git y creado el usuario en github haremos lo 
 ## Creación de contenedor en  Docker
 
 1.Creamos la aplicación con la imagen estando en el directorio YourArtistfy directorio con el siguiente comando 
-$docker build -t your-artistfy ./Your-Artistfy IMPORTANTE PONER EL PUNTO BARRA PARA QUE SE META EN EL DIRECTORIO DE ./Your-Artistfy  !
+$docker build -t your-artistfy ./Your-Artistfy IMPORTANTE PONER EL PUNTO BARRA PARA QUE SE META EN EL DIRECTORIO DE ./Your-Artistfy  
 
 
 2.Creamos un nuevo contenedor con la imagen que hemos creado anteriormente con el siguiente comando
