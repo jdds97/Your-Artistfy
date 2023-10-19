@@ -31,7 +31,7 @@ $ docker run -it --name your-artistfy your-artistfy
 
 
 # Y ya iniciará el programa :
-1. Te preguntará:
+1.Te preguntará:
 Dime cómo quieres que se llame la playlist
 Aquí tienes que poner el nombre por teclado 
 
