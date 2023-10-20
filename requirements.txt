@@ -7,4 +7,5 @@ python-dotenv==0.15.0
 #
 #Módulo requests
 requests==2.26.0
-
+#Módulo para la autentificación de Spotify para métodos ya creados 
+spotipy==2.18.0
