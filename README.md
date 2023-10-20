@@ -1,7 +1,7 @@
 # Your Artistfy
 ## Aplicación de Python que utiliza la API de Spotify para crear una lista de reproducción de los mejores éxitos de uno o más de tus artistas favoritos. 
 
-#Despliegue
+# Despliegue
 
 # Requisitos previos:
 ## Instalación 
