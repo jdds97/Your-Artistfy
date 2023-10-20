@@ -53,7 +53,7 @@ $pip install -r requirements.txt
 8.A continuación ejecutaremos el archivo donde está el programa estando en el directorio /Your-Artistfy introduciremos el siguiente comando para ejecutar el código:
 $python o python3 index.py 
 
-9.Interacción con el programa
+#### 9.Interacción con el programa
 
 # Despliegue en docker 
 ### Instalamos docker en el dispositivo 
@@ -78,7 +78,7 @@ IMPORTANTE PONER EL PUNTO BARRA PARA QUE SE META EN EL DIRECTORIO DE ./Your-Arti
 
 $ docker run -it --name your-artistfy your-artistfy
 
-3.Interacción con el programa
+#### 3.Interacción con el programa
 # Interacción con el programa 
 1.Te preguntará:
 
