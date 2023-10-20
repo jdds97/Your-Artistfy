@@ -5,12 +5,12 @@
 
 # Requisitos previos:
 ## Instalación 
-### Instalamos git en la terminal 
-### Creamos un usuario en github
-### Instalamos python en nuestro sistema operativo y el paquete pip para instalar.
+### -Instalamos git en la terminal 
+### -Creamos un usuario en github
+### -Instalamos python en nuestro sistema operativo y el paquete pip para instalar.
 Si tienes instalado python en windows o en linux vete directamente al paso de creación entorno virtual
 
-###Instalación de Python y pip en Windows:
+### Instalación de Python y pip en Windows:
 
 Visita el sitio web oficial de Python en python.org.
 Descarga la última versión estable de Python para Windows.
