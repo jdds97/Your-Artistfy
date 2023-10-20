@@ -1,15 +1,63 @@
 # Your Artistfy
 ## Aplicación de Python que utiliza la API de Spotify para crear una lista de reproducción de los mejores éxitos de uno o más de tus artistas favoritos. 
 
+# Despliegue
+
 # Requisitos previos:
 ## Instalación 
-### Instalamos git en la terminal con git 
+### -Instalamos git en la terminal 
+### -Creamos un usuario en github
+### -Instalamos python en nuestro sistema operativo y el paquete pip para instalar.
+Si tienes instalado python en windows o en linux vete directamente al paso de creación entorno virtual
 
+### Instalación de Python y pip en Windows:
+
+Visita el sitio web oficial de Python en python.org.
+Descarga la última versión estable de Python para Windows.
+Ejecuta el instalador y asegúrate de marcar la opción "Add Python X.X to PATH" durante la instalación.
+Verificar la Instalación:
+
+Abre la línea de comandos (cmd) y escribe python --version para verificar que Python se ha instalado correctamente.
+Luego, verifica que pip esté instalado usando pip --version.
+
+### Instalación de Python y pip en Linux:
+En la mayoría de las distribuciones de Linux, Python viene preinstalado. Sin embargo, si necesitas instalar pip, puedes hacerlo utilizando el administrador de paquetes de tu distribución. Por ejemplo, en Ubuntu y otras distribuciones basadas en Debian, puedes usar apt:
+sudo apt update
+sudo apt install python3 python3-pip
+Para verificar la instalación, ejecuta:
+
+python3 --version
+pip3 --version
+
+
+# Despliegue en entorno virtual 
+
+1.Abrimos una consola de comandos y creamos un directorio en el sistema operativo y desde la carpeta vacía que tienes abres un terminal o te vas en una terminal con $cd /rutadirectorio
+
+2.Clonamos el repositorio de github con el comando $git clone https://github.com/jdds97/Your-Artistfy.git
+
+3.Te pedirá tu usuario en github y tu contraseña
+
+4.Escribimos en la consola de comandos haciendo 
+$cd Your-Artistfy
+
+5.Escribimos el siguiente comando para crear un entorno virtual
+$python3 -m venv entorno-virtual
+
+6.Entonces para activar el entorno virtual que está en este directorio ponemos en la terminal estando en /Your-Artistfy 
+$source entorno-virtual/bin/activate
+
+7.Estará entonces el entorno virtual activado si nos sale (entorno-virtual) en la consola de comandos para instalar las dependencias que nos hacen falta y entonces pondremos en la consola de comandos:
+$pip install -r requirements.txt  
+
+8.A continuación ejecutaremos el archivo donde está el programa estando en el directorio /Your-Artistfy introduciremos el siguiente comando para ejecutar el código:
+$python o python3 index.py 
+
+9.Interacción con el programa(SALTAR PASO DOCKER)
+
+# Despliegue en docker 
 ### Instalamos docker en el dispositivo 
-
-### Creamos un usuario en github
-
-Una vez tengamos instalado docker, git y creado el usuario en github haremos lo siguiente:
+Una vez tengamos instalado docker haremos lo siguiente:
 
 1.Abrimos una consola de comandos y creamos un directorio en el sistema operativo y desde la carpeta vacía que tienes abres un terminal o te vas en una terminal con $cd /rutadirectorio
 
@@ -22,15 +70,16 @@ Una vez tengamos instalado docker, git y creado el usuario en github haremos lo 
 ## Creación de contenedor en  Docker
 
 1.Creamos la aplicación con la imagen estando en el directorio YourArtistfy directorio con el siguiente comando 
-$docker build -t your-artistfy ./Your-Artistfy IMPORTANTE PONER EL PUNTO BARRA PARA QUE SE META EN EL DIRECTORIO DE ./Your-Artistfy  
+$docker build -t your-artistfy ./Your-Artistfy 
+IMPORTANTE PONER EL PUNTO BARRA PARA QUE SE META EN EL DIRECTORIO DE ./Your-Artistfy  
 
 
 2.Creamos un nuevo contenedor con la imagen que hemos creado anteriormente con el siguiente comando
 
 $ docker run -it --name your-artistfy your-artistfy
 
-
-# Y ya iniciará el programa :
+#### 3.Interacción con el programa
+# Interacción con el programa 
 1.Te preguntará:
 
 <p>
@@ -46,24 +95,28 @@ Aquí tienes que poner el nombre por teclado
 
 Aquí tienes que contestar 1 si has terminado y 2 si ya has terminado con tu playlist
 </p>
+Entonces se te abrirá en tu navegador la web de spotify con la playlist creada si eres spotify premium y si no lo eres la podrás seguir!
 # Y ya tendrías tu lista de reproducción con tus artista/s favoritos!
 
 # Funcionamiento del programa interno
 
-1.Primero, se importan los módulos necesarios, como `json`, `base64` y `os`. También se importan los módulos `load_dotenv` y `post` y `get` de la biblioteca `requests`. 
+1. El programa importa varios módulos de Python, incluyendo json, base64, webbrowser, os, dotenv, requests y spotipy.
 
-2.Luego, se carga el archivo `.env` para obtener las credenciales de autenticación del cliente de Spotify. Estas credenciales se utilizan para obtener un token de acceso a la API de Spotify. 
+2. La función 'obtener_token' se encarga de obtener un token de acceso a la API de Spotify. Este token se utiliza para realizar solicitudes a la API de Spotify.
 
-3.La función `obtener_token()` se encarga de obtener el token de acceso. Para ello, se codifican las credenciales de autenticación en base64 y se envían en una solicitud POST a la API de Spotify. El token de acceso se devuelve como una cadena. 
+3. La función 'buscar_artista' se encarga de buscar un artista en Spotify utilizando el nombre del artista proporcionado por el usuario.
 
-4.La función `obtener_autentificacion_header()` se utiliza para crear un encabezado de autenticación que se utiliza en las solicitudes a la API de Spotify. 
+4. La función 'obtener_top_tracks_por_id' se encarga de obtener las mejores canciones de un artista utilizando su ID.
 
-5.La función `buscar_artista()` se utiliza para buscar un artista en la API de Spotify. Se envía una solicitud GET a la API de Spotify con el nombre del artista como parámetro de consulta. Si se encuentra un artista, se devuelve su ID. 
+5. La función 'crear_lista_canciones' se encarga de crear una lista de reproducción de un artista utilizando su nombre.
 
-6.La función `obtenerTopTracksPorId()` se utiliza para obtener los mejores éxitos de un artista. Se envía una solicitud GET a la API de Spotify con el ID del artista como parámetro de consulta. Se devuelve una lista de las mejores canciones del artista. 
+6. La función 'crear_lista_reproduccion' se encarga de crear una lista de reproducción de varios artistas utilizando la función 'crear_lista_canciones'.
 
-7.La función `crearListaCanciones()` se utiliza para crear una lista de reproducción de los mejores éxitos de un artista. Se llama a la función `buscar_artista()` para obtener el ID del artista y luego se llama a la función `obtenerTopTracksPorId()` para obtener los mejores éxitos del artista. 
+7. La función 'main' se encarga de ejecutar el programa. Primero, obtiene un token de acceso a la API de Spotify utilizando la función 'obtener_token'.
 
-8.La función `crearListaReproduccion()` se utiliza para crear una lista de reproducción de los mejores éxitos de varios artistas. Se llama a la función `obtenerTopTracksPorId()` para cada artista y se agrega a la lista de reproducción. 
+8. Luego, utiliza la función 'crear_lista_reproduccion' para crear una lista de reproducción de varios artistas.
 
-9.Finalmente, se llama a la función `crearListaReproduccion()` para crear la lista de reproducción y se imprime en la consola.
+9.  Finalmente, imprime los elementos de la lista de reproducción y abre el enlace de la lista en un navegador web.
+
+
+En resumen, este programa utiliza la API de Spotify para crear una lista de reproducción de los mejores éxitos de varios artistas.
