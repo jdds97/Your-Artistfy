@@ -32,15 +32,20 @@ $ docker run -it --name your-artistfy your-artistfy
 
 # Y ya iniciará el programa :
 1.Te preguntará:
+
+<p>
 Dime cómo quieres que se llame la playlist
 Aquí tienes que poner el nombre por teclado 
+</p>
 
 2.Te volverá a preguntar lo siguiente:
-¿Has terminado con tus artistas?
+
+<p>¿Has terminado con tus artistas?
 1.Si
 2.No
-Aquí tienes que contestar 1 si has terminado y 2 si ya has terminado con tu playlist
 
+Aquí tienes que contestar 1 si has terminado y 2 si ya has terminado con tu playlist
+</p>
 # Y ya tendrías tu lista de reproducción con tus artista/s favoritos!
 
 # Funcionamiento del programa interno
