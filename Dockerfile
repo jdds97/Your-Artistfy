@@ -13,7 +13,7 @@ COPY . /app
 WORKDIR /app
 
 # Instalamos las dependencias de Python
-RUN pip3 install -r requirements.txt \ spotipy
+RUN pip3 install -r requirements.txt 
 
 # Comando para ejecutar tu aplicación 
 CMD ["python3","-i", "index.py"]
